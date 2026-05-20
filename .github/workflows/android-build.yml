@@ -1,14 +1,11 @@
 name: Android Build (Wasit Plus)
-
 on:
   push:
     branches: [ main, master, development ]
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
@@ -17,11 +14,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'npm'
 
       - name: Install Node.js dependencies
         run: |
-          npm ci || npm install
+          rm -f package-lock.json
+          npm install
 
       - name: Build Web Assets (React JS/TS)
         run: |
@@ -40,7 +37,7 @@ jobs:
       - name: Grant Execution permissions for Gradle wrapper
         run: chmod +x android/gradlew
 
-      - name: Compile and Build Debug APK (Android Production pipeline)
+      - name: Compile and Build Debug APK
         run: |
           cd android && ./gradlew assembleDebug
 
