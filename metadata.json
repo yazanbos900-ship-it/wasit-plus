@@ -1,0 +1,6 @@
+{
+  "name": "Waseet Plus - وسيط بلاس",
+  "description": "منصة متكاملة لنشر وإدارة الإعلانات والوساطة التجارية في سوريا مع لوحة تحكم إدارية متطورة.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
